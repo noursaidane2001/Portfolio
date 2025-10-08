@@ -10,11 +10,15 @@ export default function NavBar() {
   const links = [
     { name: "Accueil", id: "home" },
     { name: "Projets", id: "projets" },
+
+    { name: "Compétances", id: "skills" },
     { name: "Formation", id: "formation" },
+    { name: "Langues", id: "langues" },
     {
-      name: "Experiences Professionnelles",
+      name: "Experiences-Pro",
       id: "experiences-professionnelles",
     },
+    { name: "Certifications", id: "certifications" },
     { name: "Contact", id: "contact" },
   ];
 
@@ -68,7 +72,7 @@ export default function NavBar() {
           <div className="relative">
             <div className="absolute inset-0 bg-[#6366F1] blur-xl opacity-40 rounded-full scale-110 group-hover:opacity-60 transition-opacity"></div>
             <motion.img
-              src="/Photos/Nounou.jpg"
+              src="/Photos/Me.jpg"
               alt="Logo"
               className="relative w-12 h-12 rounded-full border-2 border-[#6366F1] object-cover shadow-lg z-10"
               whileHover={{ rotate: 360 }}
@@ -76,7 +80,7 @@ export default function NavBar() {
             />
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] bg-clip-text text-transparent">
-            Nour Saidane
+            Nour SAIDANE
           </span>
         </motion.a>
 

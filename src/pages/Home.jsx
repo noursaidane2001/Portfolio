@@ -18,19 +18,19 @@ export default function Home() {
       <section id="projets" className="mt-8">
         <ProjectsPage />
       </section>
+      <section id="skills" className="mt-8">
+        <SkillsSection />
+      </section>
       <section id="formation" className="mt-8">
         <Education />
-      </section>
-      <section id="experiences-professionnelles" className="mt-8">
-        <Experiences />
       </section>
       <section id="langues" className="mt-8">
         <Langues />
       </section>
-      <section id="skills" className="mt-8">
-        <SkillsSection />
+      <section id="experiences-professionnelles" className="mt-8">
+        <Experiences />
       </section>
-      <section id="skills" className="mt-8">
+      <section id="certifications" className="mt-8">
         <Certifications />
       </section>
       <section id="contact" className="mt-8">

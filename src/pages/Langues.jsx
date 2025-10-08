@@ -1,11 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const langues = [
-  { code: "fr", name: "Français", level: "Niveau Avancé" },
-  { code: "en", name: "English", level: "Niveau Intermédiaire" },
-  { code: "ar", name: "Arabe", level: "Langue Maternelle" },
-];
+import { langues } from "../data/langues";
 
 const centresInterets = ["Peinture", "Voyages", "Musique", "Natation"];
 const qualites = ["Créative", "Organisée", "Curieuse", "Rigoureuse"];
