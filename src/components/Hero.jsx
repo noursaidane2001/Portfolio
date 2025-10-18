@@ -19,7 +19,7 @@ export default function Hero() {
     {
       icon: Mail,
       value: "saidanenour2001@gmail.com",
-      href: "mailto:saidanenour2001@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=saidanenour2001@gmail.com&su=Contact%20depuis%20votre%20portfolio&body=Bonjour%20Nour,%0D%0A%0D%0A",
     },
     {
       icon: Github,
@@ -111,7 +111,7 @@ export default function Hero() {
               className="pt-4"
             >
               <motion.a
-                href="public/cv/Nour_Saidane_CV.pdf"
+                href="/Nour_Saidane_CV.pdf"
                 download="Nour_Saidane_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
