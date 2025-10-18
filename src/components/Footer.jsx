@@ -28,7 +28,7 @@ export default function Footer() {
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:saidanenour2001@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=saidanenour2001@gmail.com&su=Contact%20depuis%20votre%20portfolio&body=Bonjour%20Nour,%0D%0A%0D%0A",
       color: "#6366F1",
     },
     {
