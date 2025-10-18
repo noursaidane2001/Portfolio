@@ -75,6 +75,10 @@ export default function Footer() {
               <MapPin className="w-4 h-4" />
               <span>Tunis, Tunisie</span>
             </div>
+            <div className="flex items-center gap-2 text-gray-400">
+              <MapPin className="w-4 h-4" />
+              <span>Monastir, Tunisie</span>
+            </div>
           </motion.div>
 
           {/* Colonne 2: Liens rapides */}
@@ -176,15 +180,9 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm"
+          className="flex justify-center items-center text-center text-gray-400 text-sm"
         >
-          <p className="flex items-center gap-2">
-            © {currentYear} Nour SAIDANE. Tous droits réservés.
-          </p>
-          <p className="flex items-center gap-2">
-            Fait avec <Heart className="w-4 h-4 text-red-500 animate-pulse" />{" "}
-            et React
-          </p>
+          <p>© {currentYear} Nour SAIDANE. Tous droits réservés.</p>
         </motion.div>
       </div>
     </footer>

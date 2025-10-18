@@ -1,7 +1,7 @@
 // src/components/ProjectCard.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { FaGithub } from "react-icons/fa";
 export default function ProjectCard({ project }) {
   // --- Normalise le nom pour construire un chemin de logo ---
   const normalize = (s) =>
@@ -86,7 +86,7 @@ export default function ProjectCard({ project }) {
       {project.tache && project.tache.length > 0 && (
         <div className="mt-6">
           <h4 className="text-xl font-semibold text-[#A5D6A7] mb-3">
-            📋 Mes Tâches :
+            Mes Tâches :
           </h4>
           <ul className="list-disc list-inside text-[#E0E0E0] space-y-2">
             {project.tache.map((task, index) => (
@@ -100,7 +100,7 @@ export default function ProjectCard({ project }) {
       {/* --- Technologies utilisées --- */}
       <div className="mt-8">
         <h4 className="text-xl font-semibold text-[#6366F1] mb-3">
-          ⚙️ Technologies utilisées :
+          Technologies utilisées :
         </h4>
         <div className="flex flex-wrap gap-4">
           {project.tech && project.tech.length > 0 ? (
@@ -119,19 +119,10 @@ export default function ProjectCard({ project }) {
             href={project.repo}
             target="_blank"
             rel="noreferrer"
-            className="text-base font-semibold text-[#4FC3F7] hover:text-[#81D4FA] transition-colors"
+            className="flex items-center gap-2 text-base font-semibold text-[#4FC3F7] hover:text-[#81D4FA] transition-colors"
           >
-            🔗 Code
-          </a>
-        )}
-        {project.post && (
-          <a
-            href={project.post}
-            target="_blank"
-            rel="noreferrer"
-            className="text-base font-semibold text-[#4FC3F7] hover:text-[#C8E6C9] transition-colors"
-          >
-            Post
+            <FaGithub className="text-xl" />
+            Code
           </a>
         )}
       </div>

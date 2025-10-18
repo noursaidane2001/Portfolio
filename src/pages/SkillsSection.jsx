@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { skills } from "../data/skills";
+
 export default function SkillsSection() {
   // Dupliquer les compétences pour un défilement infini fluide
   const duplicatedSkills = [...skills, ...skills, ...skills];
@@ -14,13 +15,13 @@ export default function SkillsSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
             <img
               src="/Photos/MesAvatars/Compt.png"
               alt="Certifications"
-              className="w-32 h-32 object-cover rounded-full border-4 border-[#6366F1] relative z-10"
+              className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full border-4 border-[#6366F1] relative z-10"
             />
-            <h2 className="text-5xl font-bold text-[#6366F1] mb-4">
+            <h2 className="text-3xl sm:text-5xl font-bold text-[#6366F1] mb-4">
               Mes Compétences
             </h2>
           </div>
@@ -75,7 +76,7 @@ function SkillCircle({ skill }) {
     <motion.div
       whileHover={{ scale: 1.1, rotate: 5 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="flex-shrink-0 w-40 h-40 rounded-full bg-gradient-to-br from-[#2a2f4a] to-[#1a1f3a] border-4 border-[#6366F1]/30 shadow-2xl flex flex-col items-center justify-center gap-3 hover:border-[#6366F1] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300"
+      className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-[#2a2f4a] to-[#1a1f3a] border-4 border-[#6366F1]/30 shadow-2xl flex flex-col items-center justify-center gap-2 sm:gap-3 p-4 hover:border-[#6366F1] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all duration-300"
       style={{
         boxShadow: `0 10px 40px rgba(99, 102, 241, 0.2)`,
       }}
@@ -85,14 +86,16 @@ function SkillCircle({ skill }) {
           src={imageSrc}
           alt={skill.name}
           onError={() => setHasImage(false)}
-          className="w-16 h-16 object-contain"
+          className="w-12 h-12 sm:w-16 sm:h-16 object-contain flex-shrink-0"
         />
       )}
       {!hasImage && (
-        <span className="text-3xl" style={{ color: skill.color }}>
-        </span>
+        <span
+          className="text-2xl sm:text-3xl flex-shrink-0"
+          style={{ color: skill.color }}
+        ></span>
       )}
-      <span className="text-white font-semibold text-sm text-center px-2">
+      <span className="text-white font-semibold text-xs sm:text-sm text-center px-1 sm:px-2 line-clamp-2">
         {skill.name}
       </span>
     </motion.div>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CertificationCard from "../components/CertificationCard";
 import CertificationModal from "../components/CertificationModal";
 import { certifications } from "../data/certifications";
+
 export default function CertificationsSection() {
   const [selectedCert, setSelectedCert] = useState(null);
 
@@ -26,17 +27,17 @@ export default function CertificationsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
             <img
               src="/Photos/MesAvatars/Certif.png"
               alt="Certifications"
-              className="w-32 h-32 object-cover rounded-full border-4 border-[#6366F1] relative z-10"
+              className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full border-4 border-[#6366F1] relative z-10"
             />
-            <h2 className="text-5xl font-bold text-[#6366F1]">
+            <h2 className="text-3xl sm:text-5xl font-bold text-[#6366F1]">
               Mes Certifications
             </h2>
           </div>
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-300 text-base sm:text-lg px-4">
             Validations professionnelles de mes compétences techniques
           </p>
         </motion.div>

@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Github, Linkedin, Sparkles } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Github,
+  Linkedin,
+  Sparkles,
+  Download,
+} from "lucide-react";
 
 export default function Hero() {
   const contacts = [
@@ -96,11 +103,30 @@ export default function Hero() {
               forte valeur ajoutée.
             </motion.p>
 
-            {/* Contacts minimalistes */}
+            {/* Bouton CV */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
+              className="pt-4"
+            >
+              <motion.a
+                href="public/cv/Nour_Saidane_CV.pdf"
+                download="Nour_Saidane_CV.pdf"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#6366F1] to-[#A5D6A7] text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-2xl transition-all"
+              >
+                <Download className="w-5 h-5" />
+                Télécharger mon CV
+              </motion.a>
+            </motion.div>
+
+            {/* Contacts minimalistes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
               className="flex flex-wrap gap-5 pt-6"
             >
               {contacts.map((contact, index) => (
@@ -118,7 +144,7 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    delay: 0.5 + index * 0.1,
+                    delay: 0.6 + index * 0.1,
                     type: "spring",
                     stiffness: 200,
                   }}

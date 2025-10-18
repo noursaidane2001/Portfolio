@@ -10,19 +10,15 @@ export default function NavBar() {
   const links = [
     { name: "Accueil", id: "home" },
     { name: "Projets", id: "projets" },
-
     { name: "Compétances", id: "skills" },
     { name: "Formation", id: "formation" },
     { name: "Langues", id: "langues" },
-    {
-      name: "Experiences-Pro",
-      id: "experiences-professionnelles",
-    },
+    { name: "Experiences-Pro", id: "experiences-professionnelles" },
     { name: "Certifications", id: "certifications" },
     { name: "Contact", id: "contact" },
   ];
 
-  // Détecter le scroll pour le style du navbar
+  // ✅ Détecter le scroll pour le style du navbar
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -31,24 +27,53 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Changer le lien actif en scrollant sur les sections
+  // ✅ Changer le lien actif + l’URL en scrollant
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 100;
+      const scrollPos = window.scrollY + window.innerHeight / 4;
+
       links.forEach((link) => {
         const section = document.getElementById(link.id);
         if (section) {
           const offsetTop = section.offsetTop;
           const offsetBottom = offsetTop + section.offsetHeight;
+
           if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
             setActiveLink(link.name);
+
+            // ✅ Mettre à jour l'URL sans recharger la page
+            const newHash = `/#${link.id}`;
+            if (window.location.hash !== newHash) {
+              window.history.replaceState(null, "", newHash);
+            }
           }
         }
       });
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [links]);
+
+  // ✅ Bloquer le scroll quand le menu mobile est ouvert
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
+
+  // ✅ Défilement fluide (smooth scroll)
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
 
   return (
     <motion.header
@@ -64,10 +89,11 @@ export default function NavBar() {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.a
-          href="#home"
+          href="/#home"
           className="flex items-center gap-3 group"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
+          onClick={() => setActiveLink("Accueil")}
         >
           <div className="relative">
             <div className="absolute inset-0 bg-[#6366F1] blur-xl opacity-40 rounded-full scale-110 group-hover:opacity-60 transition-opacity"></div>
@@ -94,7 +120,7 @@ export default function NavBar() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <a
-                href={`#${link.id}`}
+                href={`/#${link.id}`}
                 className={`px-4 py-2 rounded-lg transition-all duration-300 relative z-10 ${
                   activeLink === link.name
                     ? "text-white font-semibold"
@@ -156,7 +182,7 @@ export default function NavBar() {
               style={{ top: "72px" }}
             />
             <motion.div
-              className="md:hidden absolute top-full left-0 right-0 bg-gray-900/98 backdrop-blur-md border-b border-gray-800/50 shadow-2xl"
+              className="md:hidden absolute top-full left-0 right-0 bg-gray-900 border-b border-gray-800/50 shadow-2xl"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -171,7 +197,7 @@ export default function NavBar() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <a
-                      href={`#${link.id}`}
+                      href={`/#${link.id}`}
                       onClick={() => {
                         setOpen(false);
                         setActiveLink(link.name);

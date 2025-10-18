@@ -9,8 +9,7 @@ const projects = [
             ['Angular', 'angular'],
             ['MySQL', 'mysql']
         ],
-        repo: 'https://github.com/noursaidane2001/EttabaVPC/',
-        post: 'https://github.com/noursaidane2001/EttabaVPC/'
+        repo: 'https://github.com/noursaidane2001/EttabaVPC'
     },
     {
         id: 2,
@@ -20,7 +19,6 @@ const projects = [
             ['Flutter (Dart)', 'flutter'],
             ['Firebase Storage', 'fire']
         ],
-        repo: 'https://github.com/ton-user/portfolio',
         tache: ["Mise en place de la structure Flutter (architecture MVC)", "Création des pages Principales"]
     },
     {
@@ -30,7 +28,6 @@ const projects = [
         tech: [
             ['Symfony', 'symfony']
         ],
-        repo: 'https://github.com/ton-user/projet-biblio',
         tache: ["Analyse des besoins et rédaction du cahier des charges.",
             "Conception UML et architecture de l’application.",
             "Développement des modules : enquêtes qualité, KPI, audits et documentation."],
@@ -47,7 +44,7 @@ const projects = [
             ['Express.js', 'express'],
             ['MongoDB', 'mongo']
         ],
-        repo: 'https://github.com/ton-user/portfolio',
+        repo: 'https://github.com/noursaidane2001/ISAMM_Palteform',
         tache: [
             "Conception UML et modélisation de la base de données",
             "Développement du backend avec Node.js et Express.js",
@@ -94,7 +91,6 @@ const projects = [
             ["YouTube API", "youtubelogo"],
             ["Twitch API", "twitch"]
         ],
-        "repo": "https://github.com/mobelite/estream",
         "tache": [
             "Analyse des besoins et étude comparative des plateformes e-sport existantes (Challonge, OoredooEZ, Sked, Esports.tn)",
             "Conception de l'architecture MERN Stack (MongoDB, Express.js, React.js, Node.js)",
@@ -118,7 +114,7 @@ const projects = [
             ["Eclipse IDE", "eclipse-original"],
             ["Maven", "maven-original"]
         ],
-        "repo": "https://github.com/saidanenour/gestion-stock-testing",
+        "repo": "https://github.com/noursaidane2001/GestionStock",
         "tache": [
             "Analyse des besoins fonctionnels et non-fonctionnels du système de gestion de stock",
             "Conception de l'architecture orientée objet avec les classes Produit, Magasin et GestionMagasin",
