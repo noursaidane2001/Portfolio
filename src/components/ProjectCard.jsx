@@ -1,7 +1,7 @@
-// src/components/ProjectCard.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+
 export default function ProjectCard({ project }) {
   // --- Normalise le nom pour construire un chemin de logo ---
   const normalize = (s) =>
@@ -72,7 +72,7 @@ export default function ProjectCard({ project }) {
     <motion.article
       whileHover={{ scale: 1.03, y: -4 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="border border-gray-700/40 rounded-2xl p-8 shadow-lg hover:shadow-2xl bg-[#1E40AF] dark:bg-[#2a2f4a] transition-all duration-300 w-full mb-8"
+      className="border border-gray-700/40 rounded-2xl p-8 shadow-lg hover:shadow-2xl bg-[#2a2f4a] transition-all duration-300 w-full mb-8"
     >
       {/* --- Titre du projet --- */}
       <h3 className="text-3xl font-bold text-[#6366F1] mb-3">

@@ -56,7 +56,7 @@ export default function ExperiencesCard({ experience }) {
     <motion.article
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="border-2 border-gray-700/50 rounded-xl p-8 bg-[#1E40AF] dark:bg-[#2a2f4a] shadow-lg hover:shadow-2xl hover:border-[#6366F1]/50 transition-all duration-300 flex flex-col h-full"
+      className="border-2 border-gray-700/50 rounded-xl p-8 bg-[#2a2f4a] shadow-lg hover:shadow-2xl hover:border-[#6366F1]/50 transition-all duration-300 flex flex-col h-full"
     >
       {/* --- En-tête --- */}
       <div className="mb-6">
