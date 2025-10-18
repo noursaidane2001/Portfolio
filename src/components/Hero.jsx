@@ -111,14 +111,14 @@ export default function Hero() {
               className="pt-4"
             >
               <motion.a
-                href="/Nour_Saidane_CV.pdf"
+                href="/Nour_Saidane_CV.pdf" // le fichier doit être à la racine de public
                 download="Nour_Saidane_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#6366F1] to-[#A5D6A7] text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-2xl transition-all"
               >
                 <Download className="w-5 h-5" />
-                Télécharger mon CV
+                Télécharger CV
               </motion.a>
             </motion.div>
 
