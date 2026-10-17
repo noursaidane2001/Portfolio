@@ -2,23 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#root {
-  height: 100%;
+@layer base {
+  :root {
+    /* Palette et variables pour faciliter les ajustements */
+    --bg: #22263d;
+    --surface: rgba(255,255,255,0.03);
+    --text: #E8F0F2;
+    --muted: #9CA3AF;
+    --accent: #6366F1;
+    --accent-shadow: rgba(100,108,255,0.67);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)] antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#6366F1] font-semibold leading-tight;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    @apply text-[#93a8ff] no-underline transition-colors;
+  }
+  a:hover {
+    @apply underline;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgba(99,102,241,0.18);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
 }
 
-body {
-  @apply bg-[#22263d] text-[#E8F0F2];
-}
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#6366F1] text-white text-sm font-medium shadow-sm hover:bg-indigo-500 transition-colors;
+  }
 
-/* Titres (h1, h2, h3...) avec une couleur différente */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-[#6366F1];
-  /* violet clair élégant */
+  .card {
+    @apply bg-[var(--surface)] p-6 rounded-lg shadow-md;
+  }
 }

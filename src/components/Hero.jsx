@@ -1,169 +1,48 @@
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  Github,
-  Linkedin,
-  Sparkles,
-  Download,
-} from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Download } from "lucide-react";
+
+const contacts = [
+  { icon: Phone, value: "+33 6 10 23 79 33", href: "tel:+33610237933" },
+  { icon: Mail, value: "saidanenour2001@gmail.com", href: "mailto:saidanenour2001@gmail.com" },
+  { icon: Github, value: "GitHub", href: "https://github.com/noursaidane2001" },
+  { icon: Linkedin, value: "LinkedIn", href: "https://linkedin.com/in/nour-saidane2001/" },
+];
 
 export default function Hero() {
-  const contacts = [
-    {
-      icon: Phone,
-      value: "+216 58 829 251",
-      href: "tel:+21658829251",
-    },
-    {
-      icon: Mail,
-      value: "saidanenour2001@gmail.com",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=saidanenour2001@gmail.com&su=Contact%20depuis%20votre%20portfolio&body=Bonjour%20Nour,%0D%0A%0D%0A",
-    },
-    {
-      icon: Github,
-      value: "GitHub",
-      href: "https://github.com/noursaidane2001",
-    },
-    {
-      icon: Linkedin,
-      value: "LinkedIn",
-      href: "https://www.linkedin.com/in/nour-saidane2001/",
-    },
-  ];
-
   return (
-    <section className="py-32 min-h-screen flex items-center">
+    <section className="py-12 md:py-16 min-h-0 flex items-center">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-20">
-          {/* Image à droite */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative md:w-5/12"
-          >
-            <motion.div
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute inset-0 bg-gradient-to-r from-[#6366F1]/20 to-[#A5D6A7]/20 rounded-full blur-2xl"
-            />
-            <img
-              src="/Photos/Me.jpg"
-              alt="Nour Saidane"
-              className="relative w-full max-w-lg mx-auto rounded-3xl shadow-2xl border-4 border-[#6366F1]/40"
-            />
-          </motion.div>
-
-          {/* Contenu à gauche */}
-          <div className="md:w-7/12 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#A5D6A7] font-medium text-xl">
-                  Bonjour, je suis
-                </span>
-              </div>
-              <h1 className="text-6xl md:text-7xl font-bold text-[#6366F1] mb-4">
-                Nour SAIDANE
-              </h1>
-              <div className="h-1.5 w-40 bg-gradient-to-r from-[#6366F1] to-[#A5D6A7] rounded-full mb-8"></div>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-3xl font-semibold text-[#A5D6A7]"
-            >
-              Élève Ingénieur en Génie Logiciel
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-gray-300 text-xl leading-relaxed"
-            >
-              Étudiante à l'
-              <span className="text-[#6366F1] font-semibold">ISAMM</span>,
-              passionnée par le développement logiciel et la conception de
-              solutions innovantes. Je possède des compétences solides en
-              gestion de projets et souhaite contribuer à des initiatives à
-              forte valeur ajoutée.
-            </motion.p>
-
-            {/* Bouton CV */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="pt-4"
-            >
-              <motion.a
-                href="/Nour_Saidane_CV.pdf" // le fichier doit être à la racine de public
-                download="Nour_Saidane_CV.pdf"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#6366F1] to-[#A5D6A7] text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-2xl transition-all"
-              >
-                <Download className="w-5 h-5" />
-                Télécharger CV
-              </motion.a>
-            </motion.div>
-
-            {/* Contacts minimalistes */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="flex flex-wrap gap-5 pt-6"
-            >
-              {contacts.map((contact, index) => (
-                <motion.a
-                  key={index}
-                  href={contact.href}
-                  target={
-                    contact.href.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    contact.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    delay: 0.6 + index * 0.1,
-                    type: "spring",
-                    stiffness: 200,
-                  }}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative"
-                >
-                  <div className="p-4 bg-gradient-to-br from-[#2a2f4a] to-[#1a1f3a] rounded-xl border-2 border-[#6366F1]/30 hover:border-[#6366F1] transition-all shadow-lg hover:shadow-xl">
-                    <contact.icon className="w-6 h-6 text-[#6366F1] group-hover:text-[#A5D6A7] transition-colors" />
-                  </div>
-                  {/* Tooltip */}
-                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    <div className="bg-[#2a2f4a] text-white text-xs px-3 py-1 rounded-lg whitespace-nowrap border border-[#6366F1]/30">
-                      {contact.value}
-                    </div>
-                  </div>
-                </motion.a>
-              ))}
-            </motion.div>
+        <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
+          <div className="relative md:w-5/12">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#6366F1]/20 to-[#A5D6A7]/20 rounded-full blur-2xl" />
+            <img src="/Nour.jpg" alt="Portrait de Nour Saidane" className="relative w-full max-w-lg mx-auto rounded-3xl shadow-2xl border-4 border-[#6366F1]/40" />
+          </div>
+          <div className="md:w-7/12 space-y-7">
+            <div>
+              <span className="text-[#A5D6A7] font-medium text-xl">Bonjour, je suis</span>
+              <h1 className="text-5xl md:text-7xl font-bold text-[#6366F1] mt-3 mb-4">Nour SAIDANE</h1>
+              <div className="h-1.5 w-40 bg-gradient-to-r from-[#6366F1] to-[#A5D6A7] rounded-full" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#A5D6A7]">Étudiante en Master Génie de l’Informatique Logicielle</h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Étudiante en Master Informatique à l’Université de Rouen Normandie et diplômée d’un cycle ingénieur en Génie logiciel, je m’intéresse à l’architecture logicielle, au développement Full-Stack, à la CI/CD et à la qualité logicielle. Mes expériences m’ont appris à privilégier des applications maintenables et le travail en équipe Agile. Je recherche un stage de fin d’études de six mois à partir du 1er avril 2027 pour contribuer à des projets d’ingénierie logicielle.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <a href="/Nour_Saidane_CV.pdf" download="Nour_Saidane_CV.pdf" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#6366F1] to-[#A5D6A7] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                <Download className="w-5 h-5" /> Télécharger mon CV
+              </a>
+              <a href="mailto:saidanenour2001@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#A5D6A7]/50 text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">Me contacter</a>
+            </div>
+            <div className="flex flex-wrap gap-3 pt-2">
+              {contacts.map((contact) => {
+                const ContactIcon = contact.icon;
+                return (
+                  <a key={contact.value} href={contact.href} aria-label={contact.value} title={contact.value} target={contact.href.startsWith("http") ? "_blank" : undefined} rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined} className="p-3 bg-[#2a2f4a] rounded-xl border border-[#6366F1]/30 hover:border-[#6366F1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+                    <ContactIcon aria-hidden="true" className="w-5 h-5 text-[#A5D6A7]" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

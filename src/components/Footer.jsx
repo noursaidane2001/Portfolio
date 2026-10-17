@@ -28,13 +28,13 @@ export default function Footer() {
     {
       icon: Mail,
       label: "Email",
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=saidanenour2001@gmail.com&su=Contact%20depuis%20votre%20portfolio&body=Bonjour%20Nour,%0D%0A%0D%0A",
+      href: "mailto:saidanenour2001@gmail.com",
       color: "#6366F1",
     },
     {
       icon: Phone,
       label: "Téléphone",
-      href: "tel:+21658829251",
+      href: "tel:+33610237933",
       color: "#10B981",
     },
   ];
@@ -68,16 +68,12 @@ export default function Footer() {
               Nour SAIDANE
             </h3>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Élève ingénieur en Génie Logiciel passionnée par le développement
-              et l'innovation technologique.
+              Ingénieure en Génie Logiciel passionnée par le développement et
+              l'innovation technologique.
             </p>
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin className="w-4 h-4" />
-              <span>Tunis, Tunisie</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-400">
-              <MapPin className="w-4 h-4" />
-              <span>Monastir, Tunisie</span>
+              <span>Rouen, France</span>
             </div>
           </motion.div>
 

@@ -1,22 +1,52 @@
 // src/components/NavBar.jsx
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const links = [
+  { name: "Accueil", id: "home" },
+  { name: "Projets", id: "projets" },
+  { name: "Compétences", id: "skills" },
+  { name: "Formation", id: "formation" },
+  { name: "Langues", id: "langues" },
+  { name: "Expériences-Pro", id: "experiences-professionnelles" },
+  { name: "Certifications", id: "certifications" },
+  { name: "Contact", id: "contact" },
+];
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("Accueil");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const links = [
-    { name: "Accueil", id: "home" },
-    { name: "Projets", id: "projets" },
-    { name: "Compétances", id: "skills" },
-    { name: "Formation", id: "formation" },
-    { name: "Langues", id: "langues" },
-    { name: "Experiences-Pro", id: "experiences-professionnelles" },
-    { name: "Certifications", id: "certifications" },
-    { name: "Contact", id: "contact" },
-  ];
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+
+    if (!section) return;
+
+    const navbarOffset = 88;
+    const top =
+      section.getBoundingClientRect().top + window.scrollY - navbarOffset;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    window.history.replaceState(null, "", `/#${id}`);
+  };
+
+  const handleNavClick = (event, link) => {
+    event.preventDefault();
+    setOpen(false);
+    setActiveLink(link.name);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      window.setTimeout(() => scrollToSection(link.id), 80);
+      return;
+    }
+
+    scrollToSection(link.id);
+  };
 
   // ✅ Détecter le scroll pour le style du navbar
   useEffect(() => {
@@ -42,9 +72,9 @@ export default function NavBar() {
             setActiveLink(link.name);
 
             // ✅ Mettre à jour l'URL sans recharger la page
-            const newHash = `/#${link.id}`;
+            const newHash = `#${link.id}`;
             if (window.location.hash !== newHash) {
-              window.history.replaceState(null, "", newHash);
+              window.history.replaceState(null, "", `/${newHash}`);
             }
           }
         }
@@ -93,12 +123,12 @@ export default function NavBar() {
           className="flex items-center gap-3 group"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => setActiveLink("Accueil")}
+          onClick={(event) => handleNavClick(event, links[0])}
         >
           <div className="relative">
             <div className="absolute inset-0 bg-[#6366F1] blur-xl opacity-40 rounded-full scale-110 group-hover:opacity-60 transition-opacity"></div>
             <motion.img
-              src="/Photos/Me.jpg"
+              src="/Nour.jpg"
               alt="Logo"
               className="relative w-12 h-12 rounded-full border-2 border-[#6366F1] object-cover shadow-lg z-10"
               whileHover={{ rotate: 360 }}
@@ -126,7 +156,7 @@ export default function NavBar() {
                     ? "text-white font-semibold"
                     : "text-gray-300 hover:text-white"
                 }`}
-                onClick={() => setActiveLink(link.name)}
+                onClick={(event) => handleNavClick(event, link)}
               >
                 {link.name}
               </a>
@@ -198,10 +228,7 @@ export default function NavBar() {
                   >
                     <a
                       href={`/#${link.id}`}
-                      onClick={() => {
-                        setOpen(false);
-                        setActiveLink(link.name);
-                      }}
+                      onClick={(event) => handleNavClick(event, link)}
                       className={`block px-4 py-3 rounded-lg transition-all duration-300 ${
                         activeLink === link.name
                           ? "bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-semibold shadow-lg"

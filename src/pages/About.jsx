@@ -34,7 +34,7 @@ export default function Footer() {
     {
       icon: Phone,
       label: "Téléphone",
-      href: "tel:+21658829251",
+      href: "tel:+33610237933",
       color: "#10B981",
     },
   ];
@@ -68,12 +68,12 @@ export default function Footer() {
               Nour SAIDANE
             </h3>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Élève ingénieur en Génie Logiciel passionnée par le développement
-              et l'innovation technologique.
+              Ingénieure en Génie Logiciel passionnée par le développement et
+              l'innovation technologique.
             </p>
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin className="w-4 h-4" />
-              <span>Tunis, Tunisie</span>
+              <span>Rouen, France</span>
             </div>
           </motion.div>
 
